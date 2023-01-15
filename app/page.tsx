@@ -17,7 +17,7 @@ export default function Home() {
     await axios
     .post('http://localhost:3000/api/email', { email: receiver, subject, message })
     .then((res) => {
-      alert('Send Mail To You');
+      alert('Success');
       console.log(res);
     }).catch(
       (e: Error) => console.log(e)
