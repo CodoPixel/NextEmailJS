@@ -31,7 +31,7 @@ export default function Home() {
       <form ref={form} onSubmit={submit}>
         <input name="subject" placeholder="subject" required />
         <input name="message" placeholder="message" required />
-        <input name="receiver" placeholder="receiver" defaultValue="thomas.gysemans.etu@univ-lille.fr" required />
+        <input name="receiver" placeholder="receiver" required />
         <button type="submit" disabled={loading}>{loading ? "Envoie..." : "Envoyer"}</button>
       </form>
     </div>
