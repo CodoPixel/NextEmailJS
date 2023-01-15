@@ -1,8 +1,14 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { SMTPClient } from 'emailjs';
 
+interface IncomingData {
+  email: string;
+  message: string;
+  subject: string;
+}
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { email, message, subject } = req.body;
+  const { email, message, subject } = req.body as IncomingData;
 
   const client = new SMTPClient({
     user: process.env.SENDER_EMAIL,
