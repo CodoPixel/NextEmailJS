@@ -14,14 +14,13 @@ export default function Home() {
     const message = data.get("message");
     const receiver = data.get("receiver");
     setLoading(true);
-    await axios
-    .post('http://localhost:3000/api/email', { email: receiver, subject, message })
-    .then((res) => {
-      alert('Success');
+    try {
+      const res = await axios.post("/api/email", { email: receiver, subject, message });
+      alert("Success");
       console.log(res);
-    }).catch(
-      (e: Error) => console.log(e)
-      )
+    } catch (e) {
+      console.log(e);
+    }
     setLoading(false);
   }, []);
 
